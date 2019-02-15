@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Include external CSS. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css" />
+
+
+    <!-- Include Editor style. -->
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.2/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@2.9.2/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <!-- Create a tag that we will use as the editable area. -->
+    <!-- You can use a div tag as well. -->
+
+
+    <div class="jumbotron">
+        <h2>Welcome print Document!!</h2>
+        <div class="container">
+            <div class="row">
+                    <div class="col-5">
+                            <label for="exampleFormControlFile1">Seleccionar Archivo:</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <div class="col-2">
+                            <label for="exampleFormControlFile1">Paginado:</label>
+                            <select class="form-control" id="Paginado">
+                                    <option value="A">Lado "A"</option>
+                                    <option value="B">Lado "B"</option>
+                            </select>
+                    </div>
+                    <div class="col-1">
+                            <label for="exampleFormControlFile1">Linea:</label>
+                            <select class="form-control" id="linea">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="7">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                    </div>
+                    <div class="col-2">
+                            <label for="exampleFormControlFile1">Tamaño Letra:</label>
+                            <select class="form-control" id="fontSizeMenu">
+                                    <option value="8px">8</option>
+                                    <option value="9px">9</option>
+                                    <option value="10px">10</option>
+                                    <option value="11px">11</option>
+                                    <option value="12px">12</option>
+                                    <option value="14px">14</option>
+                                    <option value="18px">18</option>
+                            </select>
+                    </div>
+                    <div class="col-2">
+                            <label for="exampleFormControlFile1">Tipo Letra:</label>
+                            <select class="form-control" id="fontTypeMenu">
+                                    <option class="" value="Arial, Helvetica, sans-serif">Arial</option>
+                                    <option class="Georgia" value="Georgia, 'Times New Roman', Times, serif">Georgia</option>
+                                    <option class="Impact" value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important">Impact</option>
+                                    <option class="TimesNewRoman" value="Times New Roman,Times,serif">Times New Roman</option>
+                                    <option class="Verdana" value="Verdana, Geneva, Tahoma, sans-serif">Verdana</option>
+                            </select>
+                    </div>
+            </div>
+        </div>
+        <div class="container" id="contenedorTexto">
+            <textarea></textarea>
+            <button id="btnPrimary" type="button" class="btn btn-primary btn-lg btn-block">print</button>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalPrint" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Impresion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="containerPrint">
+    </div>
+
+
+    <!-- Include external JS libs. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+    <!-- Include Editor JS files. -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@2.9.2/js/froala_editor.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.9.1/docxtemplater.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.6.1/jszip.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip-utils/0.0.2/jszip-utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/jquery.print.js"></script>
+    
+</body>
+
+</html>
