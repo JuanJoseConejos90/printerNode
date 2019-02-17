@@ -14,7 +14,7 @@ $('#fontSizeMenu').on('change', function () {
 
 $("#btnPrimary").click(function () {
 
-    generate();
+    printPage();
 });
 
 $('#exampleFormControlFile1').on('change', function () {
@@ -115,7 +115,7 @@ function setPrint() {
 
 
 function printPage() {
-    $("#containerPrint").print({
+    $(".fr-view").print({
         globalStyles: false,
         mediaPrint: false,
         stylesheet: "css/print.css",
