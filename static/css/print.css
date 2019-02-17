@@ -1,11 +1,17 @@
 .fr-view{
+  margin-top: 36mm !important;
   text-align: justify !important;
-  
+  margin-left: 66px !important;
+  padding-right: 18px;
 }
 
 p{
   line-height: 200%;
   
 }
+
+
+
+
 
 
