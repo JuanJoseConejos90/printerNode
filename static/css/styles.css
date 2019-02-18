@@ -28,7 +28,7 @@ h2{
 }
 
 #modalPrint{
-    display: none;
+    display: none !important;
 }
 
 .card{
