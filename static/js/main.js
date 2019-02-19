@@ -97,7 +97,7 @@ function settingsPaginado() {
         $(".fr-view").css({ "margin-left": "66px", "padding-right": "18px" });
     } else {
         //Set lado B
-        $(".fr-view").css({ "margin-left": "66px", "padding-right": "18px" });
+        $(".fr-view").css({ "margin-left": "40px", "padding-right": "42px" });
     }
 }
 
@@ -106,10 +106,10 @@ function settingsPageLine() {
     var marginTop = '';
     switch (line) {
         case "1":
-            marginTop = "36mm";
+            marginTop = "37mm";
             break;
         case "2":
-            marginTop = "46mm";
+            marginTop = "45mm";
             break;
         case "3":
             marginTop = "56mm";
